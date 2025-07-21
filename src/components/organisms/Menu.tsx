@@ -2,11 +2,11 @@ import { useGameContext } from "@/contexts/Game.context";
 import { cn } from "@/lib/utils";
 import {
 	ArrowUpFromLine,
+	Eraser,
 	Pause,
 	Play,
 	RotateCcw,
 	Save,
-	Trash,
 } from "lucide-react";
 import { useState } from "react";
 import {
@@ -45,14 +45,14 @@ const Menu = () => {
 	};
 
 	return (
-		<div className="w-full bg-neutral-900 flex flex-row items-center justify-start gap-8 p-2 border-b border-neutral-400 text-white text-xs">
+		<div className="flex w-full bg-neutral-900 flex-row items-center justify-start lg:gap-8 gap-4 p-2 border-b border-neutral-400 text-white text-xs">
 			{/* Grid */}
 			<section className="flex flex-row items-center gap-2 p-0">
 				<label htmlFor="grid-height">Rows: </label>
 				<Input
 					id="grid-height"
 					placeholder="height"
-					className="w-20 h-6 rounded-xs"
+					className="w-15 h-6 rounded-xs"
 					value={rows}
 					type="number"
 					step={1}
@@ -60,11 +60,16 @@ const Menu = () => {
 					max={1000}
 					onChange={(e) => setRows(Number(e.target.value))}
 				/>
-				<label htmlFor="grid-width">Columns: </label>
+				<label className="hidden lg:inline" htmlFor="grid-width">
+					Columns:{" "}
+				</label>
+				<label className="lg:hidden" htmlFor="grid-width">
+					Cols:{" "}
+				</label>
 				<Input
 					id="grid-width"
 					placeholder="width"
-					className="w-20 h-6 rounded-xs"
+					className="w-15 h-6 rounded-xs"
 					value={columns}
 					type="number"
 					step={1}
@@ -77,7 +82,8 @@ const Menu = () => {
 					className="text-gray-800 h-6 rounded-xs"
 					onClick={handleGenerate}
 				>
-					Generate
+					<span className="hidden lg:inline">Generate</span>
+					<span className="lg:hidden">Ok</span>
 				</Button>
 			</section>
 
@@ -85,7 +91,12 @@ const Menu = () => {
 
 			{/* Tick speed */}
 			<section className="flex flex-row items-center gap-2 p-0">
-				<label htmlFor="evolution-delay">Tick speed: </label>
+				<label className="hidden lg:inline" htmlFor="evolution-delay">
+					Tick speed:{" "}
+				</label>
+				<label className="lg:hidden" htmlFor="evolution-delay">
+					Speed:{" "}
+				</label>
 				<Slider
 					id="evolution-delay"
 					value={[tickSpeed]}
@@ -93,7 +104,7 @@ const Menu = () => {
 					min={50}
 					max={5000}
 					step={50}
-					className="w-40"
+					className="lg:w-40 w-20"
 				/>
 				<p>{tickSpeed}ms</p>
 			</section>
@@ -123,7 +134,7 @@ const Menu = () => {
 					<TooltipTrigger>
 						<Button
 							variant="ghost"
-							className="hover:bg-inherit hover:text-neutral-400 h-6 rounded-xs"
+							className="border border-neutral-50 hover:border-neutral-400 hover:bg-inherit hover:text-neutral-400 h-6 rounded-xs"
 							onClick={controls.reset}
 						>
 							<RotateCcw />
@@ -136,10 +147,10 @@ const Menu = () => {
 					<TooltipTrigger>
 						<Button
 							variant="ghost"
-							className="hover:bg-inherit hover:text-neutral-400 h-6 rounded-xs"
+							className="border border-neutral-50 hover:border-neutral-400 hover:bg-inherit hover:text-neutral-400 h-6 rounded-xs"
 							onClick={controls.clearGrid}
 						>
-							<Trash />
+							<Eraser />
 						</Button>
 					</TooltipTrigger>
 					<TooltipContent>Clear grid</TooltipContent>

@@ -12,7 +12,7 @@ const Grid = () => {
 	});
 
 	return (
-		<div className="max-w-[calc(100vw-5rem)] max-h-[calc(100vh-5rem)] overflow-auto scrollbar-gutter-stable">
+		<div className="max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-5rem)] max-h-[calc(100vh-1rem)] sm:max-h-[calc(100vh-5rem)] overflow-auto scrollbar-gutter-stable">
 			<div className="flex flex-col w-fit border-t border-l border-neutral-500">
 				{Object.values(rows).map((row, rowIndex) => (
 					<div className="flex flex-row" key={rowIndex}>

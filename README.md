@@ -10,7 +10,7 @@ A modern, interactive browser implementation of Conway's Game of Life built with
 - **Simulation Controls**: Start, stop, reset, and clear the grid
 - **Adjustable Speed**: Control simulation speed with a slider (50ms - 5000ms)
 - **Grid Persistence**: Save and load custom grid patterns with custom names
-- **UI**: Built with Tailwind CSS and Radix UI components
+- **Responsive UI**: Mobile compatible UI built with Tailwind CSS and Shadcn
 
 ## 🚀 Getting Started
 
